@@ -8,31 +8,32 @@ Receive and send gRPC traffic from a service written with the Moleculer framewor
 
 ## How to
 
-This package provides [mixins](https://moleculer.services/docs/0.14/services.html#Mixins) for both client and server.
+This package provides [mixins](https://moleculer.services/docs/0.14/services.html#Mixins) for both
+client and server.
 
 ```js
-const { ServiceBroker } = require("moleculer");
-const { GrpcServerMixin, GrpcClientMixin } = require("moleculer-grpc");
+const { ServiceBroker } = require('moleculer');
+const { GrpcServerMixin, GrpcClientMixin } = require('moleculer-grpc');
 
 const broker = new ServiceBroker();
 
 broker.createService({
-  name: "fleet",
+  name: 'fleet',
   mixins: [new GrpcServerMixin(broker), new GrpcClientMixin(broker)],
 });
 ```
 
 ```js
-const { ServiceBroker } = require("moleculer");
-const { createGenericClient } = require("moleculer-grpc");
+const { ServiceBroker } = require('moleculer');
+const { createGenericClient } = require('moleculer-grpc');
 
 const broker = new ServiceBroker();
 
 broker.createService({
-  name: "fleet",
+  name: 'fleet',
   actions: {
     hello: (ctx) => {
-      ctx.call("");
+      ctx.call('');
       const client = createGenericClient(ctx.call);
     },
   },
@@ -59,5 +60,4 @@ Probably works / minimums:
 
 ## Support
 
-Please open an issue if you're running into something
-not covered elsewhere.
+Please open an issue if you're running into something not covered elsewhere.
